@@ -1,0 +1,28 @@
+.product-card {
+    width: 25.2rem;
+    text-decoration: none;
+    margin: 1rem;
+    &__image {
+        width: 25rem;
+        height: 25rem;
+        object-fit: cover;
+    &__price {
+
+    }
+
+    &__title {
+
+    }
+
+    &__location {
+
+    }
+    }
+}
+
+.product__list {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+}
+
