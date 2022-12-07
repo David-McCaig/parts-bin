@@ -6,6 +6,7 @@ const productRouter = require('./routes/productRouter.js');
 
 const express = require('express');
 const app = express();
+const multer = require('multer');
 
 const cors = require('cors');
 

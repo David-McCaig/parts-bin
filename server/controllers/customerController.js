@@ -7,8 +7,47 @@ const getAllCustomers = async (_req, res) => {
     res.status(200).json(costumerData);
   };
 
+  const addCustomer = async (req, res) => {
+    console.log(req.body);
+    //Validate request body input fields
+    if (
+      !req.body.customer_name ||
+      !req.body.email 
+    ) {
+      return res.status(400).json({
+        message:
+          "Please make sure to provide warehouse name, address, city, country, contact name, contact position, phone number, and email fields in your request.",
+      });
+    }
+  
+    try {
+      //Check if warehouse customer
+      const findCustomer = await db("customer").where({
+        address: req.body.customer_name,
+      });
+      if (findCustomer.length) {
+        return res.status(404).json({ message: "This customer already exists, please edit!" });
+      }
+  
+      //Create new customer
+      const newCustomer = {
+        ...req.body,
+        id: uuid.v4(),
+      };
+  
+      //Insert into customer list
+      await db("customer").insert(newCustomer);
+      //Successful add
+      res.status(201).json(newCustomer);
+    } catch (error) {
+      console.log("error!!!");
+      res.status(500).json({ error: error });
+    }
+  };
+
   module.exports = {
-  getAllCustomers
+  getAllCustomers,
+  addCustomer
   }
 
 // const knex = require('knex')(require('../knexfile'));

@@ -18,6 +18,7 @@ function HomePage() {
       .get(urlForProductList)
       .then((response) => {
         setproductToDisplay(response.data);
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err);
@@ -26,17 +27,14 @@ function HomePage() {
 
   return (
     <>
-      
-      <Header/>
+      <Header />
       <div className="product__list">
         <ProductCardList
           products={productToDisplay}
           setproductToDisplay={setproductToDisplay}
         />
       </div>
-      
     </>
-
   );
 }
 

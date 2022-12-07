@@ -7,7 +7,7 @@ const productController = require("../controllers/productController");
 
 router.get("/", productController.getAllProduct);
 
-// router.post("/", productController.addProductItem);
+router.post("/", productController.addProductItem);
 
 // router
 //   .route("/:id")

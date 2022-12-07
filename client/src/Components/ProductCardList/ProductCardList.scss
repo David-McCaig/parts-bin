@@ -1,17 +1,23 @@
+@use "../../styles/mixins/mixins.scss" as *;
+
 .product-card {
-    width: 25.2rem;
+    width: 19rem;
     text-decoration: none;
     margin: 1rem;
     &__image {
-        width: 25rem;
-        height: 25rem;
+        width: 18rem;
+        height: 18rem;
         object-fit: cover;
-    &__price {
+        @include tablet{
+         
+        }
+    
+        &__price {
 
     }
 
     &__title {
-
+        
     }
 
     &__location {
@@ -23,6 +29,12 @@
 .product__list {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
+    justify-content: center;
+    background-color: #FAFAFA;
+    @include tablet{
+  
+    // justify-content: space-between;   
+    }
+ 
 }
 
