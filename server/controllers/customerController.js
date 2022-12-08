@@ -23,7 +23,7 @@ const getAllCustomers = async (_req, res) => {
     try {
       //Check if warehouse customer
       const findCustomer = await db("customer").where({
-        address: req.body.customer_name,
+        customer_name: req.body.customer_name,
       });
       if (findCustomer.length) {
         return res.status(404).json({ message: "This customer already exists, please edit!" });
@@ -45,9 +45,21 @@ const getAllCustomers = async (_req, res) => {
     }
   };
 
+  const getCustomerById = async (req, res) => {
+    try {
+      const customerData = await db("customer").where({ id: req.params.id });
+      res.status(200).json(customerData[0]);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  };
+
+
+
   module.exports = {
   getAllCustomers,
-  addCustomer
+  addCustomer,
+  getCustomerById
   }
 
 // const knex = require('knex')(require('../knexfile'));

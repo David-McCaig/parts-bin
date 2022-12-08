@@ -16,14 +16,19 @@ const Upload = () => {
     item_name: "",
     description: "",
     category: "",
+    price: "",
+    image_path:"",
+    customer_name:"",
+    email:"",
   });
 
-  //Fetch warehouse list
+  // Fetch warehouse list
   // const urlForWarehouseList = "http://localhost:8000/customer";
   // useEffect(() => {
   //   axios
   //     .get(urlForWarehouseList)
   //     .then(({ data }) => {
+  //       console.log(data)
   //       setWarehouseList(data);
   //     })
   //     .catch((error) => {
@@ -69,14 +74,24 @@ const Upload = () => {
   const handleUpdateSaved = (event) => {
     event.preventDefault();
     //Fetch inventory endpoint
-    const urlForInventoryAdd = `http://localhost:8000/product`;
+    const urlForInventoryAdd = `http://localhost:8000/product/`;
     //POST request to add inventory item
     axios
       .post(urlForInventoryAdd, {
-        customer_id: values.customer_id,
+        // customer_id: values.customer_id,
         item_name: values.item_name,
         description: values.description,
         category: values.category,
+        price: values.price,
+        image_path: values.image_path,
+        customer_name: values.customer_name,
+        email: values.email,
+      })
+      const urlForCustomerAdd = `http://localhost:8000/customer/`;
+    axios
+      .post(urlForCustomerAdd, {
+        customer_name: values.customer_name,
+        email: values.email,
       })
       //Confirm successful item add message
       .then(({ data }) => {
@@ -107,20 +122,64 @@ const Upload = () => {
         <div className="inventory-add-form__item-details">
           <h2 className="inventory-add-form__main-header">Item Details</h2>
           {/* Item Name */}
-          {/* <div>
+          <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
-              Item Name
+              image path
             </label>
             <input
               type="text"
-              value={values.item_Name}
+              value={values.image_path}
               onChange={handleInputChange}
               className="inventory-add-form__name"
-              id="item_name"
-              name="item_name"
-              placeholder="Item Name"
+              id="image_path"
+              name="image_path"
+              placeholder="image_path"
             ></input>
-          </div> */}
+          </div>
+
+          <div>
+            <label className="inventory-add-form__headings" htmlFor="item_name">
+              customer name
+            </label>
+            <input
+              type="text"
+              value={values.customer_name}
+              onChange={handleInputChange}
+              className="inventory-add-form__name"
+              id="customer_name"
+              name="customer_name"
+              placeholder="customer_name"
+            ></input>
+          </div>
+
+          <div>
+            <label className="inventory-add-form__headings" htmlFor="item_name">
+              Email
+            </label>
+            <input
+              type="text"
+              value={values.email}
+              onChange={handleInputChange}
+              className="inventory-add-form__name"
+              id="email"
+              name="email"
+              placeholder="email"
+            ></input>
+          </div>
+          <div>
+            <label className="inventory-add-form__headings" htmlFor="item_name">
+              price
+            </label>
+            <input
+              type="text"
+              value={values.price}
+              onChange={handleInputChange}
+              className="inventory-add-form__name"
+              id="price"
+              name="price"
+              placeholder="price"
+            ></input>
+          </div>
 
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
@@ -136,6 +195,21 @@ const Upload = () => {
               placeholder="Item Name"
             ></input>
           </div>
+
+          {/* <div>
+            <label className="inventory-add-form__headings" htmlFor="item_name">
+               Name
+            </label>
+            <input
+              type="text"
+              value={values.customer_name}
+              onChange={handleInputChange}
+              className="inventory-add-form__name"
+              id="customer_id"
+              name="customer_id"
+              placeholder="Item Name"
+            ></input>
+          </div> */}
           {/* Item Description */}
           <div>
             <label
@@ -175,12 +249,12 @@ const Upload = () => {
             </select>
           </div>
         </div>
-        {/* Item Availability */}
-        {/* <div className="inventory-add-form__item-availability">
+         Item Availability 
+         <div className="inventory-add-form__item-availability">
           <h2 className="inventory-add-form__main-header">Item Availability</h2>
-          <div className="inventory-add-form__status-container"> */}
-            {/* Item Status */}
-            {/* <div>
+          <div className="inventory-add-form__status-container"> 
+             Item Status 
+             <div>
               <label className="inventory-add-form__headings">Status</label>
               <div className="inventory-add-form__everything-radio-container">
                 <div className="inventory-add-form__radio-container">
@@ -216,9 +290,9 @@ const Upload = () => {
                   </label>
                 </div>
               </div>
-            </div> */}
-            {/* Item Quantity */}
-            {/* <div className="inventory-add-form__quantity-container">
+            </div> 
+             Item Quantity 
+             <div className="inventory-add-form__quantity-container">
               <label
                 hidden={values.status === "Out of Stock"}
                 className="inventory-add-form__headings"
@@ -236,48 +310,48 @@ const Upload = () => {
                 name="quantity"
                 placeholder="Insert Quantity"
               />
-            </div> */}
-            {/* Warehouse Dropdown Menu */}
-            {/* <div>
-              <div> */}
-                {/* <label
+            </div> 
+             {/* Warehouse Dropdown Menu  */}
+             <div>
+              <div> 
+                 <label
                   className="inventory-add-form__headings"
                   htmlFor="warehouse"
                 >
-                  Warehouse
-                </label> */}
-                {/* <select
+                  {/* Warehouse */}
+                </label> 
+                 {/* <select
                   onChange={handleInputChange}
                   className="inventory-add-form__warehouse"
-                  name="warehouse_id"
-                  id="warehouse_id"
+                  name="customer_id"
+                  id="customer_id"
                 >
                   <option value="">Please Select</option>
                   {warehouseList.map((warehouse, index) => {
                     return (
                       <option key={index} value={warehouse.id}>
-                        {warehouse.warehouse_name}
+                        {warehouse.customer_name}
                       </option>
                     );
                   })}
-                </select> */}
-              {/* </div>
+                </select>  */}
+               </div>
               <p className="inventory-add-form__message">
                 {confirmationMessage}
               </p>
-            </div> */}
-          {/* </div>
-        </div> */}
+            </div> 
+           </div>
+        </div> 
 
         <div className="inventory-add-form__button-container">
-          {/* Cancel Button */}
+           {/* Cancel Button  */}
           <button
             onClick={handleCancelClick}
             className="inventory-add-form__cancel-button"
           >
             Cancel
           </button>
-          {/* Add Button */}
+           {/* Add Button  */}
           <button type="submit" className="inventory-add-form__add-button">
             + Add Item
           </button>

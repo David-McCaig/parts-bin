@@ -9,9 +9,9 @@ router.get("/", productController.getAllProduct);
 
 router.post("/", productController.addProductItem);
 
-// router
-//   .route("/:id")
-//   .get(productController.getProductById)
+router
+  .route("/:id")
+  .get(productController.getProductById);
 //   .put(productController.editProduct)
 //   .delete(productController.deleteProduct);
 

@@ -11,9 +11,9 @@ router.post("/", customerController.addCustomer);
 
 // // router.get("/:id/product", warehouseController.getWarehouseInventories);
 
-// router
-// .route("/:id")
-// // .get(warehouseController.getWarehouseById)
+router
+.route("/:id")
+.get(customerController.getCustomerById)
 // // .put(warehouseController.editWarehouse)
 // // .patch(warehouseController.editWarehouse)
 // // .delete(warehouseController.deleteWarehouse);
