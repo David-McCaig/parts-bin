@@ -1,4 +1,5 @@
 @use "../../styles/mixins/mixins.scss" as *;
+@use "../../styles/partials/colours" as *;
 
 .contact-top {
     width: 100%;
@@ -8,7 +9,8 @@
     
       @include tablet {
         padding: 1rem 2.5rem 1.3rem 2.5rem; 
-        height: 26rem;
+        height: 15rem;
+
     }
       @include desktop {
         padding-left: 4.3rem;
@@ -24,7 +26,7 @@
       }
       
       &__social-title {
-        color: white;
+        color: $color-primary-1;
         margin-bottom: 1.4rem;
         line-height: 2rem;
   
@@ -35,7 +37,7 @@
       
       &__social-icon {
         margin-right: 1.7rem;
-        
+        color: $color-primary-1;
         @include tablet {
         margin-top: 1rem;
         }
@@ -43,7 +45,7 @@
       
       &__social-logo-top {
         visibility: hidden;
-          
+        color: $color-primary-1;
         @include tablet {
           visibility: initial;
           position: relative;
@@ -60,18 +62,17 @@
       @include tablet {
           display: flex;
           @include tablet {
-              justify-content: space-between;
+              justify-content: center;
               gap: 2rem;
           } 
           @include desktop {
-              justify-content:flex-start;
+             
               gap: 2rem;
           } 
       }
       &__containers {
-      color: black;
+      color: $color-primary-1;
       background-color: #FAFAFA;
-
       padding-left: 1rem;
       }
       &__management-name {
@@ -101,7 +102,7 @@
   
   .contact__social-logo-bottom {
     margin: 3.2rem 0rem 0rem 1rem;
-      
+    color: $color-primary-1;
     @include tablet {
       display: none;
     }  

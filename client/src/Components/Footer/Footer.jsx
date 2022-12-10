@@ -10,17 +10,16 @@ const Footer = () => {
     <>
     <footer className="contact-top">
     <div className="contact-top__social">
-        <h3 className="contact-top__social-title">Get in Touch</h3>
     
-        {/* <NavLink to="https://instagram.com" target="_blank" rel="noreferrer">
+         {/* <a to={{ pathname: "https://instagram.com"}} target="_blank">
             <img class="contact-top__social-icon" src={instagram} alt="Instagram link"></img>
-        </NavLink>
-        <NavLink to="https://facebook.com" target="_blank" rel="noreferrer">
+        </> */}
+        {/* <NavLink to="https://facebook.com" target="_blank" rel="noreferrer">
             <img class="contact-top__social-icon" src={facebook} alt="Facebook link"></img>
         </NavLink>
         <NavLink to="https://twitter.com" target="_blank" rel="noreferrer">
             <img class="contact-top__social-icon" src={twitter} alt="Twitter link"></img>
-        </NavLink> */}
+        </NavLink>  */}
             
     </div>
     <div className="contact">
