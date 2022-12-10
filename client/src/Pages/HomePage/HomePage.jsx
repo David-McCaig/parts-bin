@@ -44,7 +44,6 @@ function HomePage() {
           setproductToDisplay={setproductToDisplay}
         />
       </div>
-      <Footer/>
     </>
   );
 }
