@@ -10,7 +10,6 @@ const Upload = () => {
 
   //State Variables
   const [confirmationMessage, setConfirmationMessage] = useState("");
-  const [warehouseList, setWarehouseList] = useState([]);
   const [values, setValues] = useState({
     customer_id: "",
     item_name: "",
@@ -45,26 +44,6 @@ const Upload = () => {
     });
   };
 
-  //Handle Status Change
-  const handleStatusChange = (event) => {
-    //In stock radio button checked
-    if (event.target.checked) {
-      setValues({
-        ...values,
-        status: event.target.value,
-        quantity: "",
-      });
-    }
-    //Out of stock radio button checked
-    if (event.target.value === "Out of Stock") {
-      setValues({
-        ...values,
-        status: event.target.value,
-        quantity: 0,
-      });
-    }
-  };
-
   //Handle Cancel Button
   const handleCancelClick = (event) => {
     event.preventDefault();
@@ -87,14 +66,7 @@ const Upload = () => {
         customer_name: values.customer_name,
         email: values.email,
       })
-      const urlForCustomerAdd = `http://localhost:8000/customer/`;
-    axios
-      .post(urlForCustomerAdd, {
-        customer_name: values.customer_name,
-        email: values.email,
-      })
-      //Confirm successful item add message
-      .then(({ data }) => {
+      .then(function () {
         setConfirmationMessage(`added to inventory!`);
       })
       //Confirm unsuccessful item add message
@@ -195,22 +167,6 @@ const Upload = () => {
               placeholder="Item Name"
             ></input>
           </div>
-
-          {/* <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
-               Name
-            </label>
-            <input
-              type="text"
-              value={values.customer_name}
-              onChange={handleInputChange}
-              className="inventory-add-form__name"
-              id="customer_id"
-              name="customer_id"
-              placeholder="Item Name"
-            ></input>
-          </div> */}
-          {/* Item Description */}
           <div>
             <label
               className="inventory-add-form__headings"
@@ -251,66 +207,16 @@ const Upload = () => {
         </div>
          Item Availability 
          <div className="inventory-add-form__item-availability">
-          <h2 className="inventory-add-form__main-header">Item Availability</h2>
+      
           <div className="inventory-add-form__status-container"> 
-             Item Status 
-             <div>
-              <label className="inventory-add-form__headings">Status</label>
+            <div>
               <div className="inventory-add-form__everything-radio-container">
                 <div className="inventory-add-form__radio-container">
-                  <input
-                    type="radio"
-                    id="in-stock"
-                    name="in-out-stock"
-                    value="In Stock"
-                    checked={values.status === "In Stock"}
-                    onChange={handleStatusChange}
-                  />
-                  <label
-                    className="inventory-add-form__label"
-                    htmlFor="in-stock"
-                  >
-                    In stock
-                  </label>
-                </div>
-                <div className="inventory-add-form__radio-container">
-                  <input
-                    type="radio"
-                    id="out-of-stock"
-                    name="in-out-stock"
-                    value="Out of Stock"
-                    checked={values.status === "Out of Stock"}
-                    onChange={handleStatusChange}
-                  />
-                  <label
-                    className="inventory-add-form__label"
-                    htmlFor="out-of-stock"
-                  >
-                    Out of stock
-                  </label>
+
                 </div>
               </div>
             </div> 
-             Item Quantity 
-             <div className="inventory-add-form__quantity-container">
-              <label
-                hidden={values.status === "Out of Stock"}
-                className="inventory-add-form__headings"
-                htmlFor="quantity"
-              >
-                Quantity
-              </label>
-              <input
-                hidden={values.status === "Out of Stock"}
-                type="text"
-                value={values.quantity}
-                onChange={handleInputChange}
-                className="inventory-add-form__quantity"
-                id="quantity"
-                name="quantity"
-                placeholder="Insert Quantity"
-              />
-            </div> 
+
              {/* Warehouse Dropdown Menu  */}
              <div>
               <div> 
@@ -320,21 +226,6 @@ const Upload = () => {
                 >
                   {/* Warehouse */}
                 </label> 
-                 {/* <select
-                  onChange={handleInputChange}
-                  className="inventory-add-form__warehouse"
-                  name="customer_id"
-                  id="customer_id"
-                >
-                  <option value="">Please Select</option>
-                  {warehouseList.map((warehouse, index) => {
-                    return (
-                      <option key={index} value={warehouse.id}>
-                        {warehouse.customer_name}
-                      </option>
-                    );
-                  })}
-                </select>  */}
                </div>
               <p className="inventory-add-form__message">
                 {confirmationMessage}

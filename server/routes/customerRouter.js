@@ -7,7 +7,7 @@ const customerController = require("../controllers/customerController");
 
 router.get("/", customerController.getAllCustomers);
 
-router.post("/", customerController.addCustomer);
+// router.post("/", customerController.addCustomer);
 
 // // router.get("/:id/product", warehouseController.getWarehouseInventories);
 

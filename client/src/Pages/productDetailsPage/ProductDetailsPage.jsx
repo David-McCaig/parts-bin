@@ -38,7 +38,6 @@ if (!productToDisplay) return <h2>loading...</h2>
     
     return (
         <>
-     <p>This is the product details page</p>
      <ProductDetails
           product={productToDisplay}
           customer={customer}
