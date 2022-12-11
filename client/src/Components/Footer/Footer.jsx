@@ -8,13 +8,14 @@ import "./Footer.scss"
 const Footer = () => {
   return (
     <>
+    <div className="footer-line"></div>
     <footer className="contact-top">
     <div className="contact-top__social">
     
          {/* <a to={{ pathname: "https://instagram.com"}} target="_blank">
             <img class="contact-top__social-icon" src={instagram} alt="Instagram link"></img>
-        </> */}
-        {/* <NavLink to="https://facebook.com" target="_blank" rel="noreferrer">
+         <a/>  */}
+         {/* <NavLink to="https://facebook.com" target="_blank" rel="noreferrer">
             <img class="contact-top__social-icon" src={facebook} alt="Facebook link"></img>
         </NavLink>
         <NavLink to="https://twitter.com" target="_blank" rel="noreferrer">
@@ -25,7 +26,7 @@ const Footer = () => {
     <div className="contact">
     <div className="contact__containers">
         <h4 className="contact__management-name">Shop</h4>
-        <h4 className="contact__management-name">Components</h4>
+        <h4 className="contact__management-address">Components</h4>
         <p className="contact__management-address">Bikes</p>
         <p className="contact__management-address-bottom">Frames</p>
         <p className="contact__management-email">Wheels</p>
