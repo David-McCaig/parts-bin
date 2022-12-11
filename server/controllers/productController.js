@@ -2,7 +2,24 @@ const knexConfig = require("../knexfile");
 const db = require("knex")(knexConfig);
 const uuid = require("uuid");
 const uuid4 = require("uuid4");
-const {getOrInsertCustomer} = require('./customerController')
+const {getOrInsertCustomer} = require('./customerController');
+const { default: knex } = require("knex");
+
+// const path = require ('path')
+// const multer = require('multer')
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//       cb(null, '../public/images')
+//   },
+//   filename: (req, file, cb) => {
+//     console.log(file)
+//     cb(null, date.now() + path.extname(file.originalname))
+//   }
+// })
+
+// const upload = multer({ storage: storage })
+
 
 const getAllProduct = async (_req, res) => {
   try {
@@ -14,7 +31,6 @@ const getAllProduct = async (_req, res) => {
     res.status(500).json({ error: error });
   }
 };
-
 
 
 const addProductItem = async (req, res) => {
@@ -56,20 +72,6 @@ const addProductItem = async (req, res) => {
   }
 };
 
-
-
-//we receive the body from the frontend
-//we make sure that we have all the information we need
-//we need to make two database insertions
-
-//check if the customer already exists in the db.
-//const customerInDB = await db(customers).select("email")
-//if(!customerInDB.length){create the customer (db insert...)}
-
-//const newProduct = await db(product).insert...
-//res(201).json(newProduct[0])
-
-
 const getProductById = async (req, res) => {
   try {
     const productData = await db("product").where({ id: req.params.id });
@@ -78,48 +80,6 @@ const getProductById = async (req, res) => {
     res.status(500).json({ error: error });
   }
 };
-
-// const addProductItem = async (req, res) => {
-//   console.log(req.body);
-//   //Validate request body input fields
-//   if (
-//     !req.body.customer_id ||
-//     !req.body.item_name ||
-//     !req.body.description ||
-//     !req.body.category ||
-//     !req.body.price 
-//   ) {
-//     return res.status(400).json({
-//       message:
-//         "Please make sure to provide warehouse name, address, city, country, contact name, contact position, phone number, and email fields in your request.",
-//     });
-//   }
-
-//   try {
-//     //Check if warehouse exists
-//     const findProduct = await db("product").where({
-//       item_name: req.body.item_name,
-//     });
-//     if (findProduct.length) {
-//       return res.status(404).json({ message: "This warehouse already exists, please edit!" });
-//     }
-
-//     //Create new warehouse
-//     const newProduct = {
-//       ...req.body,
-//       id: uuid.v4(),
-//     };
-
-//     //Insert into warehouse list
-//     await db("product").insert(newProduct);
-//     //Successful add
-//     res.status(201).json(newProduct);
-//   } catch (error) {
-//     console.log("error!!!");
-//     res.status(500).json({ error: error });
-//   }
-// };
-
 
 module.exports = {
   getAllProduct,

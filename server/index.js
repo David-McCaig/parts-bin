@@ -11,8 +11,9 @@ const multer = require('multer');
 const cors = require('cors');
 
 app.use(cors());
-
+app.use(express.static('public'));
 app.use(express.json());
+
 
 app.use('/customer', customerRouter);
 app.use('/product', productRouter);

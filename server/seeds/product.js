@@ -12,7 +12,7 @@
         item_name: 'Santa Cruz Nomad',
         description:'Load up the van, hit the road, climb a mountain.',
         category: 'Bikes',
-        image_path:'../public/images/316754613_6054155124641121_6865821686395918891_n.jpg',
+        image_path:'http://localhost:8000/images/Breezer-Series-III-1.jpg',
         price: '$7500',
       },
       {
@@ -21,7 +21,7 @@
         item_name: 'Santa Cruz Nomad 2',
         description:'Load up the van, hit the road, climb a mountain, hammer it back down.',
         category: 'Bikes',
-        image_path:'../public/images/317011728_6300125650002016_463428268317915234_n.jpg',
+        image_path:'http://localhost:8000/images/The-2022-Santa-Cruz-Bicycles-Chameleon-29er-5.jpg',
         price: '$4500',
       },
       {
@@ -30,7 +30,7 @@
         item_name: 'Giant Reign Advanced pro med',
         description:'Really great bike. Only used for a couple seasons in mint condition',
         category: 'Bikes',
-        image_path:'../public/images/317829919_661420945567040_8207046872589799082_n.jpg',
+        image_path:'http://localhost:8000/images/DSC7556.jpg',
         price: '$3500',
       },
       {
@@ -39,7 +39,7 @@
         item_name: 'Marin Rift Zone 3 med',
         description:'I have a Marin Rift Zone 3 mtb for sale. Frame is a Large. Didn’t really use it much. Bike is in immaculate condition. Suspension works amazing, shifts amazing. Great all around mountain bike.',
         category: 'Bikes',
-        image_path:'../public/images/316656203_5496482050469737_4640108091297014779_n.jpg',
+        image_path:'http://localhost:8000/images/Johns-1982-Ritchey-Tamalpais-Mountain-Bike-2.jpg',
         price: '$2850',
       },
       {
@@ -48,7 +48,7 @@
         item_name: 'Kona Process large',
         description:'This is a large 2020 KONA process in very good condition has upgraded charger 2.1 damper in fork and upgraded 170mm pnw dropper. Also upgraded to 35mm rise race face atlas bars.',
         category: 'Bikes',
-        image_path:'../public/images/308696219_5500036230042913_241648303391135130_n.jpg',
+        image_path:'http://localhost:8000/images/1989-Otis-Guy-Braunstein-Quay-Art-of-the-Mountain-Bike-4.jpg',
         price: '$3850',
       },
       {
@@ -57,7 +57,7 @@
         item_name: 'Kona Process large',
         description:'This is a large 2020 KONA process in very good condition has upgraded charger 2.1 damper in fork and upgraded 170mm pnw dropper. Also upgraded to 35mm rise race face atlas bars.',
         category: 'Bikes',
-        image_path:'../public/images/Mountain bike.jpeg',
+        image_path:'http://localhost:8000/images/1985-Cunningham-Indian-1.jpg',
         price: '$3250',
       },
     ]);

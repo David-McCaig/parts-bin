@@ -24,7 +24,7 @@ function ProductDetails({ product, customer }) {
     return (
         <section className='product'>
             
-                <img className="product-details__image" alt={'Mosaic bike for sale'} src={bike}></img>
+                <img className="product-details__image" alt={'Mosaic bike for sale'} src={product.image_path}></img>
             
 
             <div className='product-details'>

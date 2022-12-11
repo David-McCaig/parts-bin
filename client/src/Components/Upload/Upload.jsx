@@ -16,9 +16,9 @@ const Upload = () => {
     description: "",
     category: "",
     price: "",
-    image_path:"",
-    customer_name:"",
-    email:"",
+    image_path: "",
+    customer_name: "",
+    email: "",
   });
 
   // Fetch warehouse list
@@ -53,7 +53,7 @@ const Upload = () => {
   const handleUpdateSaved = (event) => {
     event.preventDefault();
     //Fetch inventory endpoint
-    const urlForInventoryAdd = `http://localhost:8000/product/`;
+    const urlForInventoryAdd = `http://localhost:8000/product/upload`;
     //POST request to add inventory item
     axios
       .post(urlForInventoryAdd, {
@@ -83,7 +83,7 @@ const Upload = () => {
     <div className="inventory-add-form-top">
       <Link to={`/inventory`}>
         <div className="inventory-add-form-top__nav-div">
-          <img  alt="Arrow back"></img>
+          <img alt="Arrow back"></img>
           <h2>Add Inventory Item</h2>
         </div>
       </Link>
@@ -94,7 +94,7 @@ const Upload = () => {
         <div className="inventory-add-form__item-details">
           <h2 className="inventory-add-form__main-header">Item Details</h2>
           {/* Item Name */}
-          <div>
+          {/* <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               image path
             </label>
@@ -107,7 +107,7 @@ const Upload = () => {
               name="image_path"
               placeholder="image_path"
             ></input>
-          </div>
+          </div> */}
 
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
@@ -205,44 +205,48 @@ const Upload = () => {
             </select>
           </div>
         </div>
-         Item Availability 
-         <div className="inventory-add-form__item-availability">
-      
-          <div className="inventory-add-form__status-container"> 
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="image_path" />
+        </form>
+        Item Availability
+        <div className="inventory-add-form__item-availability">
+
+          <div className="inventory-add-form__status-container">
             <div>
               <div className="inventory-add-form__everything-radio-container">
                 <div className="inventory-add-form__radio-container">
 
                 </div>
               </div>
-            </div> 
+            </div>
 
-             {/* Warehouse Dropdown Menu  */}
-             <div>
-              <div> 
-                 <label
+            {/* Warehouse Dropdown Menu  */}
+            <div>
+              <div>
+                <label
                   className="inventory-add-form__headings"
                   htmlFor="warehouse"
                 >
                   {/* Warehouse */}
-                </label> 
-               </div>
+                </label>
+              </div>
               <p className="inventory-add-form__message">
                 {confirmationMessage}
               </p>
-            </div> 
-           </div>
-        </div> 
+            </div>
+          </div>
+        </div>
 
         <div className="inventory-add-form__button-container">
-           {/* Cancel Button  */}
+          {/* Cancel Button  */}
           <button
             onClick={handleCancelClick}
             className="inventory-add-form__cancel-button"
           >
             Cancel
           </button>
-           {/* Add Button  */}
+          {/* Add Button  */}
           <button type="submit" className="inventory-add-form__add-button">
             + Add Item
           </button>
