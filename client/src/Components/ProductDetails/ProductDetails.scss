@@ -2,12 +2,12 @@
 @use "../../styles/partials/colours" as *;
 
 .product {
-    background-color: #FAFAFA;;
+    background-color: #FAFAFA;
     padding-top: 2rem;
     @include tablet{
         display: flex;
         align-items: center;
-        margin-left: 2rem;
+        padding-left: 2rem;
         width: 100%;
         }
         @include desktop{
@@ -21,6 +21,7 @@
         margin-top: 5rem;
         margin-left: 2rem;
         width: 40%;
+ 
         }
     @include desktop{
         max-width: 29rem;  
@@ -64,6 +65,7 @@
         width: 5rem;
         margin-top: .2rem;
         margin-left: .1rem;
+        
     }
 
     &__container-description {
@@ -74,6 +76,7 @@
 
         @include tablet{
         max-width: 29rem;
+       
         }
 
         @include desktop{
@@ -92,13 +95,13 @@
     justify-content: center;
 
     @include tablet{
-        width: 50%;
-        max-width: 44%;
+        width: 55%;
+        max-width: 47%;
         margin-top: 5.8rem;
         }
 
     @include desktop{
-        max-width: 33rem;
+        max-width: 36rem;
     }
 }
 
@@ -148,6 +151,7 @@ form {
     border: 1px $secondary-color-3 solid;
     margin-bottom: 1rem;
     margin-top: .8rem;
+    
 }
 
 .message__button {
@@ -157,4 +161,16 @@ form {
     border: 1px $secondary-color-3 solid;
     background-color:$secondary-color-3 ;
     margin-bottom: 1rem;
+    background-color: #ddd;
+    border: none;
+    color: black;
+     font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+&:hover {
+    background-color: $color-primary-1;
+    color: $color-primary-4;
+  }
 }
+
+

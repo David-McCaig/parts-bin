@@ -3,9 +3,10 @@ import React from 'react';
 import bike from '../../assets/images/Mosaic-x-TPC-GT-2-45-Review-4.jpg'
 import { useState } from "react";
 import { ImLocation2 } from "react-icons/im";
-import { MdDescription } from "react-icons/md";
+import { TbFileDescription } from "react-icons/tb";
 import { ImPriceTags } from "react-icons/im";
 import { GrContact } from "react-icons/gr";
+import { CgNametag } from "react-icons/cg";
 
 
 function ProductDetails({ product, customer }) {
@@ -31,6 +32,10 @@ function ProductDetails({ product, customer }) {
                 <div >
                 <h2 className='product-details__title'>{product.item_name} </h2>
                 <div className='product-details__container'>
+                    <CgNametag className="product-details__logo" />
+                    <p className='product-details__location'>  {customer.customer_name} </p>
+                </div>
+                <div className='product-details__container'>
                     <ImLocation2 className="product-details__logo" />
                     <p className='product-details__location'>  Toronto </p>
                 </div>
@@ -40,7 +45,7 @@ function ProductDetails({ product, customer }) {
                 </div>
 
                 <div className='product-details__container-description'>
-                <MdDescription className="product-details__logo-description" />
+                <TbFileDescription className="product-details__logo-description" />
                 <p className='product-details__description'>{product.description}</p>
                 </div>
                 </div>
