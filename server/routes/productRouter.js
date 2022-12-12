@@ -10,7 +10,6 @@ const path = require('path')
 
 
 const productController = require("../controllers/productController");
-
 router.get("/", productController.getAllProduct);
 
 router.post("/upload", productController.addProductItem);

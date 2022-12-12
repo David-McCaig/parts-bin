@@ -33,6 +33,8 @@ const getAllProduct = async (_req, res) => {
 };
 
 
+
+
 const addProductItem = async (req, res) => {
   // console.log(req.body);
   //Validate request body input fields
@@ -84,5 +86,5 @@ const getProductById = async (req, res) => {
 module.exports = {
   getAllProduct,
   addProductItem,
-  getProductById
+  getProductById,
 };

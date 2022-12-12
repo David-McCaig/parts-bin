@@ -3,7 +3,7 @@
 
 .product {
     background-color: #FAFAFA;
-    padding-top: 2rem;
+    padding: 2rem 0rem;
     @include tablet{
         display: flex;
         align-items: center;

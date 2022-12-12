@@ -94,7 +94,7 @@ const Upload = () => {
         <div className="inventory-add-form__item-details">
           <h2 className="inventory-add-form__main-header">Item Details</h2>
           {/* Item Name */}
-          {/* <div>
+          <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               image path
             </label>
@@ -107,7 +107,7 @@ const Upload = () => {
               name="image_path"
               placeholder="image_path"
             ></input>
-          </div> */}
+          </div>
 
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
