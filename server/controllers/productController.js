@@ -5,21 +5,20 @@ const uuid4 = require("uuid4");
 const {getOrInsertCustomer} = require('./customerController');
 const { default: knex } = require("knex");
 
-// const path = require ('path')
-// const multer = require('multer')
+const path = require ('path')
+const multer = require('multer')
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//       cb(null, '../public/images')
-//   },
-//   filename: (req, file, cb) => {
-//     console.log(file)
-//     cb(null, date.now() + path.extname(file.originalname))
-//   }
-// })
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'public/images')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-'+ file.originalname)
+  }
+})
 
-// const upload = multer({ storage: storage })
-
+const upload = multer({ storage : storage })
+// const upload = multer({ dest: 'public/images' })
 
 const getAllProduct = async (_req, res) => {
   try {
@@ -36,43 +35,54 @@ const getAllProduct = async (_req, res) => {
 
 
 const addProductItem = async (req, res) => {
-  // console.log(req.body);
-  //Validate request body input fields
-  if (
-    !req.body.item_name ||
-    !req.body.description ||
-    !req.body.category ||
-    !req.body.price ||
-    !req.body.customer_name ||
-    !req.body.email ||
-    !req.body.image_path
-  ) {
-    return res.status(400).json({
-      message:
-        "Please make sure to provide customer, item name, description, category, status and quantity fields in your request.",
-    });
-  }
+ 
+    upload.single('imageFile')(req, res, async (err)=> {
+      if (
+        !req.body.item_name ||
+        !req.body.description ||
+        !req.body.category ||
+        !req.body.price ||
+        !req.body.customer_name ||
+        !req.body.email 
+      ) {
+        return res.status(400).json({
+          message:
+            "Please make sure to provide customer, item name, description, category, status and quantity fields in your request.",
+        });
+        
+      }
+      console.log(err)
+      if(err) {
+        res.status(500).json({error: err})
+      }
+      try {
+  
+        const customer = await getOrInsertCustomer(req, res) 
+        console.log('Add product cusomter called', {customer})
+           await db("product").insert({
+             customer_id: customer[0].id,
+             item_name: req.body.item_name,
+             description: req.body.description,
+             category: req.body.category,
+             price: req.body.price,
+             image_path: `http://localhost:8000/images/${req.file.filename}`,
+             id: uuid4()
+           });
+           return res.status(201).json({ message: "Product created" });
+         
+       } catch (error) {
+         console.log(error);
+         res.status(500).json({ error: error });
+       }
+    })
+  
+  
+ 
+ // Validate request body input fields
 
-  try {
 
-   const customer = await getOrInsertCustomer(req, res) 
-   console.log('Add product cusomter called', {customer})
-      await db("product").insert({
-        customer_id: customer[0].id,
-        item_name: req.body.item_name,
-        description: req.body.description,
-        category: req.body.category,
-        price: req.body.price,
-        image_path: req.body.image_path,
-        id: uuid4()
-      });
-      return res.status(404).json({ message: "This customer already exists, please edit!!!!" });
-    
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: error });
-  }
 };
+
 
 const getProductById = async (req, res) => {
   try {
