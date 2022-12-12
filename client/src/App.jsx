@@ -1,6 +1,7 @@
 import HomePage from "./Pages/HomePage/HomePage.jsx"
 import UploadPage from "./Pages/UploadPage/UploadPage.jsx";
 import NavBar from "./Components/NavBar/NavBar.jsx"
+import BikesPage from "./Pages/BikesPage/BikesPage"
 import ProductDetailsPage from "./Pages/productDetailsPage/ProductDetailsPage"
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/upload" element={<UploadPage />} />
+          <Route path="/bikes" element={<BikesPage />} />
           <Route path='/product/:id' element={<ProductDetailsPage />} />
         </Routes>
       </BrowserRouter>
