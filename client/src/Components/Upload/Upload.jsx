@@ -2,13 +2,24 @@ import "./Upload.scss";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useForm } from "react-hook-form";
 
 const Upload = () => {
   //Navigation
   const navigate = useNavigate();
 
+  const { 
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+
+  console.log(errors)
+
+
+
   //State Variables
+  const [imageFile, setImageFile] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [values, setValues] = useState({
     customer_id: "",
@@ -21,20 +32,6 @@ const Upload = () => {
     email: "",
   });
 
-  // Fetch warehouse list
-  // const urlForWarehouseList = "http://localhost:8000/customer";
-  // useEffect(() => {
-  //   axios
-  //     .get(urlForWarehouseList)
-  //     .then(({ data }) => {
-  //       console.log(data)
-  //       setWarehouseList(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
-
   //Handle form field changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -44,6 +41,12 @@ const Upload = () => {
     });
   };
 
+  const handleFileChange = (event) => {
+    console.log(event.target.files)
+    setImageFile(event.target.files[0])
+  }
+
+
   //Handle Cancel Button
   const handleCancelClick = (event) => {
     event.preventDefault();
@@ -52,19 +55,25 @@ const Upload = () => {
   //Handle Save Button
   const handleUpdateSaved = (event) => {
     event.preventDefault();
+    console.log(imageFile)
+
     //Fetch inventory endpoint
     const urlForInventoryAdd = `http://localhost:8000/product/upload`;
     //POST request to add inventory item
+    const formData = new FormData();
+    formData.append("item_name", values.item_name);
+    formData.append("description", values.description);
+    formData.append("category", values.category);
+    formData.append("customer_name", values.customer_name);
+    formData.append("email", values.email);
+    formData.append("price", values.price);
+    formData.append("imageFile", imageFile);
+    console.log(formData)
     axios
-      .post(urlForInventoryAdd, {
-        // customer_id: values.customer_id,
-        item_name: values.item_name,
-        description: values.description,
-        category: values.category,
-        price: values.price,
-        image_path: values.image_path,
-        customer_name: values.customer_name,
-        email: values.email,
+      .post(urlForInventoryAdd, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
       })
       .then(function () {
         setConfirmationMessage(`added to inventory!`);
@@ -81,20 +90,17 @@ const Upload = () => {
   return (
     //Add Form Heading
     <div className="inventory-add-form-top">
-      <Link to={`/inventory`}>
-        <div className="inventory-add-form-top__nav-div">
-          <img alt="Arrow back"></img>
-          <h2>Add Inventory Item</h2>
-        </div>
-      </Link>
 
       {/* Add Form */}
       <form onSubmit={handleUpdateSaved} className="inventory-add-form">
+      <div className="upload__container">
+        <input type="file" name="image_path" className="upload__button" onChange={handleFileChange} />
+      </div>
         {/* Item Details */}
         <div className="inventory-add-form__item-details">
-          <h2 className="inventory-add-form__main-header">Item Details</h2>
+          <h2 className="inventory-add-form__main-header">Bike for sale</h2>
           {/* Item Name */}
-          <div>
+          {/* <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               image path
             </label>
@@ -107,13 +113,17 @@ const Upload = () => {
               name="image_path"
               placeholder="image_path"
             ></input>
-          </div>
+          </div> */}
 
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
-              customer name
+              Customer Name
             </label>
             <input
+              {...register("customer_name", { required: 'Full Name is required', minLength: {
+                value: 4,
+                message:'Full name is required'
+              } })}
               type="text"
               value={values.customer_name}
               onChange={handleInputChange}
@@ -122,8 +132,9 @@ const Upload = () => {
               name="customer_name"
               placeholder="customer_name"
             ></input>
+            <p>{errors.customer_name?.message}</p>
           </div>
-
+              
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               Email
@@ -199,17 +210,10 @@ const Upload = () => {
               <option value="">Please Select</option>
               <option value="bikes">bikes</option>
               <option value="components">components</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Apparel">Apparel</option>
-              <option value="Accessories">Accessories</option>
             </select>
           </div>
         </div>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-          <input type="file" name="image_path" />
-        </form>
-        Item Availability
         <div className="inventory-add-form__item-availability">
 
           <div className="inventory-add-form__status-container">

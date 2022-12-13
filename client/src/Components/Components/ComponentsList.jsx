@@ -1,16 +1,16 @@
 import React from "react";
-import BikesListAll from "./BikesListAll";
+import ComponentsListAll from "./ComponentsListAll";
 // import ProductCardListAll from "./ProductCardListAll";
 // import "./ProductCardList.scss"
 
-const ProductCardList = ({ products, setproductToDisplay }) => {
+const ComponentsList = ({ products, setproductToDisplay }) => {
   
     return (
     <>
       {products.map((product) => {
         return (
           <>
-            <BikesListAll
+            <ComponentsListAll
               key={product.id}
               id={product.id}
               customerName={product.customer_name}
@@ -28,4 +28,4 @@ const ProductCardList = ({ products, setproductToDisplay }) => {
   );
 };
 
-export default ProductCardList;
+export default ComponentsList;

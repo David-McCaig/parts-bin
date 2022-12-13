@@ -1,15 +1,15 @@
-import BikesList from "../../Components/BikesBikes/BikesList"
+import Components from "../../Components/Components/ComponentsList"
 import Footer from "../../Components/Footer/Footer"
 import NavBar from "../../Components/NavBar/NavBar";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import "./BikesPage.scss";
+import "./ComponentsPage.scss";
 import { useParams} from "react-router-dom";
 
 
 import axios from "axios";
 
-function BikesPage() {
+function ComponentsPage() {
     const urlForProductList = "http://localhost:8000/product";
     const [productToDisplay, setproductToDisplay] = useState([]);
   
@@ -39,7 +39,7 @@ function BikesPage() {
       
       
       <div className="bike__list">
-        <BikesList
+        <Components
           products={productToDisplay}
           setproductToDisplay={setproductToDisplay}
           />
@@ -49,4 +49,4 @@ function BikesPage() {
 
     );
     }
-    export default BikesPage;
+    export default ComponentsPage;
