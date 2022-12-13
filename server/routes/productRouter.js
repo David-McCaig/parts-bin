@@ -11,6 +11,7 @@ const path = require('path')
 
 const productController = require("../controllers/productController");
 router.get("/", productController.getAllProduct);
+router.get("/parts", productController.getParts);
 
 router.post("/upload", productController.addProductItem);
 

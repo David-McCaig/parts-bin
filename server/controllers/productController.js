@@ -23,6 +23,7 @@ const upload = multer({ storage : storage })
 const getAllProduct = async (_req, res) => {
   try {
     const productData = await db("product")
+      .where({category:'Bikes'})
       .select('product.id', 'customer_name', 'email', 'item_name', 'description', 'category', 'price', 'image_path')
       .join('customer', { 'product.customer_id': 'customer.id' });
     res.status(200).json(productData);
@@ -30,6 +31,21 @@ const getAllProduct = async (_req, res) => {
     res.status(500).json({ error: error });
   }
 };
+
+
+const getParts = async (_req, res) => {
+  try {
+    const componentData = await db("product")
+    .where({category:'Components'})
+    .select('product.id', 'customer_name', 'email', 'item_name', 'description', 'category', 'price', 'image_path')
+    .join('customer', { 'product.customer_id': 'customer.id' });
+    res.status(200).json(componentData);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+};
+  
+
 
 
 
@@ -98,4 +114,5 @@ module.exports = {
   getAllProduct,
   addProductItem,
   getProductById,
+  getParts,
 };
