@@ -55,6 +55,7 @@ const addProductItem = async (req, res) => {
       if(err) {
         res.status(500).json({error: err})
       }
+      
       try {
   
         const customer = await getOrInsertCustomer(req, res) 
