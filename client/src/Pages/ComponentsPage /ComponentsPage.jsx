@@ -1,8 +1,5 @@
 import Components from "../../Components/Components/ComponentsList"
-import Footer from "../../Components/Footer/Footer"
-import NavBar from "../../Components/NavBar/NavBar";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./ComponentsPage.scss";
 import { useParams} from "react-router-dom";
 

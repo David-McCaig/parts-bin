@@ -1,6 +1,6 @@
 import "./Upload.scss";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -96,6 +96,7 @@ const Upload = () => {
       <div className="upload__container">
         <input type="file" name="image_path" className="upload__button" onChange={handleFileChange} />
       </div>
+      
         {/* Item Details */}
         <div className="inventory-add-form__item-details">
           <h2 className="inventory-add-form__main-header">Bike for sale</h2>

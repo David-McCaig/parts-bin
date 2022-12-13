@@ -1,16 +1,8 @@
 import Header from "../../Components/Header/Header";
 import ProductCardList from "../../Components/ProductCardList/ProductCardList"
-import Footer from "../../Components/Footer/Footer"
-import NavBar from "../../Components/NavBar/NavBar";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import { useParams} from "react-router-dom";
-
-
 import axios from "axios";
-
-import { useNavigate } from "react-router-dom";
 import "./HomePage.scss"
 
 function HomePage() {

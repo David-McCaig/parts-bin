@@ -1,7 +1,6 @@
 import './ProductDetailsPage.scss'
 import ProductDetails from '../../Components/ProductDetails/ProductDetails';
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useParams} from "react-router-dom";
 import axios from "axios";
 

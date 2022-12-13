@@ -1,7 +1,6 @@
 import React from "react";
 import ComponentsListAll from "./ComponentsListAll";
-// import ProductCardListAll from "./ProductCardListAll";
-// import "./ProductCardList.scss"
+
 
 const ComponentsList = ({ products, setproductToDisplay }) => {
   

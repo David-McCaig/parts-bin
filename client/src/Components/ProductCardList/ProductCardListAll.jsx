@@ -1,8 +1,7 @@
 // import { useState } from "react";
 // import { useNavigate, NavLink } from "react-router-dom";
 import React from "react";
-import { NavLink, Link} from "react-router-dom";
-import bike from "../../assets/images/Mosaic-x-TPC-GT-2-45-Review-4.jpg"
+import { Link } from "react-router-dom";
 import "./ProductCardList.scss"
 
 const ProductCardListAll = ({

@@ -1,8 +1,4 @@
 import React from "react";
-import facebook from "../../assets/icons/Icon-facebook.svg"
-import twitter from "../../assets/icons/Icon-twitter.svg"
-import instagram from "../../assets/icons/Icon-instagram.svg"
-import { NavLink, Link} from "react-router-dom";
 import "./Footer.scss"
 
 const Footer = () => {

@@ -1,6 +1,5 @@
 import './ProductDetails.scss'
 import React from 'react';
-import bike from '../../assets/images/Mosaic-x-TPC-GT-2-45-Review-4.jpg'
 import { useState } from "react";
 import { ImLocation2 } from "react-icons/im";
 import { TbFileDescription } from "react-icons/tb";

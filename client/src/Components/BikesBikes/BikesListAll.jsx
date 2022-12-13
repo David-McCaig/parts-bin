@@ -1,7 +1,5 @@
 import React from "react";
-import { NavLink, Link} from "react-router-dom";
-import bike from "../../assets/images/Mosaic-x-TPC-GT-2-45-Review-4.jpg"
-// import "../Produ"
+import { Link } from "react-router-dom";
 
 const BikesListAll = ({
   id,

@@ -1,8 +1,5 @@
 import BikesList from "../../Components/BikesBikes/BikesList"
-import Footer from "../../Components/Footer/Footer"
-import NavBar from "../../Components/NavBar/NavBar";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./BikesPage.scss";
 import { useParams} from "react-router-dom";
 
