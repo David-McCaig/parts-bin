@@ -112,7 +112,7 @@ const Upload = () => {
 
         {/* Item Details */}
         <div className="inventory-add-form__item-details">
-          <h2 className="inventory-add-form__main-header">Bike for sale</h2>
+          <h2 className="inventory-add-form__main-header"></h2>
           {/* Item Name */}
           {/* <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
@@ -179,7 +179,7 @@ const Upload = () => {
 
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
-              price
+              Price
             </label>
             <input
               {...register("price", {
@@ -194,7 +194,7 @@ const Upload = () => {
               className="inventory-add-form__name"
               id="price"
               name="price"
-              placeholder="price"
+              placeholder="Price"
             ></input>
             <p className="error__message">{errors.price?.message}</p>
           </div>
@@ -263,8 +263,8 @@ const Upload = () => {
               placeholder="Please select"
             >
               <option value="">Please Select</option>
-              <option value="bikes">bikes</option>
-              <option value="components">components</option>
+              <option value="bikes">Bikes</option>
+              <option value="components">Components</option>
             </select>
             <p className="error__message">{errors.category?.message}</p>
           </div>
