@@ -81,10 +81,10 @@
       {
         id: '96a5bb6d-344f-4498-984a-5830e80c43b3',
         customer_id: 'f4f1ac25-403a-4d6d-bdd3-a502026d5fff',
-        item_name: 'Otto bike',
+        item_name: 'Oddity bike',
         description:'I have a Santa Cruz mtb for sale. Frame is a Large. Didnt really use it much. Bike is in immaculate condition. Suspension works amazing, shifts amazing. Great all around mountain bike.',
         category: 'Bikes',
-        image_path:'http://localhost:8000/images/Jacquie-Phelans-1979-Drop-Bar-Cunningham-39.jpg',
+        image_path:'http://localhost:8000/images/Oddity.jpg',
         price: '$5200',
       },
       {

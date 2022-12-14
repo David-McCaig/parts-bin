@@ -29,7 +29,7 @@ const Footer = () => {
                         <p className="contact__management-address">Careers
                         </p>
                         <p className="contact__management-address-bottom">Contact US</p>
-                        <p className="contact__management-email">cwhyte@archentertainment.com</p>
+                        <p className="contact__management-email">partsbin@partsbin.com</p>
                     </div>
                 </div>
             </footer>
