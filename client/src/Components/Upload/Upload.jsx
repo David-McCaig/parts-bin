@@ -3,12 +3,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { BiErrorCircle } from "react-icons/bi";
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Upload = () => {
   //Navigation
   const navigate = useNavigate();
 
-  const { 
+  const {
     register,
     handleSubmit,
     formState: { errors }
@@ -43,6 +46,8 @@ const Upload = () => {
 
   const handleFileChange = (event) => {
     console.log(event.target.files)
+    // setImageFile(URL.createObjectURL(event.target.files[0]));
+
     setImageFile(event.target.files[0])
   }
 
@@ -52,10 +57,14 @@ const Upload = () => {
     event.preventDefault();
     navigate("/");
   };
+
+
+
   //Handle Save Button
   const handleUpdateSaved = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(imageFile)
+
 
     //Fetch inventory endpoint
     const urlForInventoryAdd = `http://localhost:8000/product/upload`;
@@ -76,6 +85,7 @@ const Upload = () => {
         },
       })
       .then(function () {
+        navigate("/uploadsuccess")
         setConfirmationMessage(`added to inventory!`);
       })
       //Confirm unsuccessful item add message
@@ -92,11 +102,14 @@ const Upload = () => {
     <div className="inventory-add-form-top">
 
       {/* Add Form */}
-      <form onSubmit={handleUpdateSaved} className="inventory-add-form">
-      <div className="upload__container">
-        <input type="file" name="image_path" className="upload__button" onChange={handleFileChange} />
-      </div>
-      
+      <form onSubmit={handleSubmit((data) => {
+        return handleUpdateSaved(data)
+      })} className="inventory-add-form">
+        <div className="upload__container">
+          <input type="file" name="image_path" className="upload__button" onChange={handleFileChange} />
+          <img src={imageFile} />
+        </div>
+
         {/* Item Details */}
         <div className="inventory-add-form__item-details">
           <h2 className="inventory-add-form__main-header">Bike for sale</h2>
@@ -121,10 +134,12 @@ const Upload = () => {
               Customer Name
             </label>
             <input
-              {...register("customer_name", { required: 'Full Name is required', minLength: {
-                value: 4,
-                message:'Full name is required'
-              } })}
+              {...register("customer_name", {
+                required: 'Input field is required !', minLength: {
+                  value: 4,
+                  message: 'Input field is required !'
+                }
+              })}
               type="text"
               value={values.customer_name}
               onChange={handleInputChange}
@@ -133,15 +148,25 @@ const Upload = () => {
               name="customer_name"
               placeholder="customer_name"
             ></input>
-            <p>{errors.customer_name?.message}</p>
+
+            <p className="error__message">{errors.customer_name?.message}</p>
           </div>
-              
+
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               Email
             </label>
             <input
               type="text"
+              {...register("email", {
+                // required: false,
+                required: 'Valid email required !',
+                pattern: {
+                  value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                  message: 'Valid email required !'
+                },
+
+              })}
               value={values.email}
               onChange={handleInputChange}
               className="inventory-add-form__name"
@@ -149,12 +174,20 @@ const Upload = () => {
               name="email"
               placeholder="email"
             ></input>
+            <p className="error__message">{errors.email?.message}</p>
           </div>
+
           <div>
             <label className="inventory-add-form__headings" htmlFor="item_name">
               price
             </label>
             <input
+              {...register("price", {
+                required: 'Input field required !', minLength: {
+                  value: 4,
+                  message: 'Input field required !'
+                }
+              })}
               type="text"
               value={values.price}
               onChange={handleInputChange}
@@ -163,6 +196,7 @@ const Upload = () => {
               name="price"
               placeholder="price"
             ></input>
+            <p className="error__message">{errors.price?.message}</p>
           </div>
 
           <div>
@@ -170,6 +204,12 @@ const Upload = () => {
               Item Name
             </label>
             <input
+              {...register("item_name", {
+                required: 'Input field required !', minLength: {
+                  value: 4,
+                  message: 'Input field required !'
+                }
+              })}
               type="text"
               value={values.item_Name}
               onChange={handleInputChange}
@@ -178,6 +218,7 @@ const Upload = () => {
               name="item_name"
               placeholder="Item Name"
             ></input>
+            <p className="error__message">{errors.item_name?.message}</p>
           </div>
           <div>
             <label
@@ -187,6 +228,12 @@ const Upload = () => {
               Description
             </label>
             <textarea
+              {...register("description", {
+                required: 'Input field required !', minLength: {
+                  value: 4,
+                  message: 'Input field required !'
+                }
+              })}
               type="text"
               value={values.description}
               onChange={handleInputChange}
@@ -195,6 +242,7 @@ const Upload = () => {
               name="description"
               placeholder="Please enter a brief item description..."
             ></textarea>
+            <p className="error__message">{errors.description?.message}</p>
           </div>
           {/* Item Category Dropdown */}
           <div>
@@ -202,6 +250,12 @@ const Upload = () => {
               Category
             </label>
             <select
+              {...register("category", {
+                required: 'Please select a category !', minLength: {
+                  value: 4,
+                  message: 'Please select a category !'
+                }
+              })}
               onChange={handleInputChange}
               className="inventory-add-form__category"
               name="category"
@@ -212,6 +266,7 @@ const Upload = () => {
               <option value="bikes">bikes</option>
               <option value="components">components</option>
             </select>
+            <p className="error__message">{errors.category?.message}</p>
           </div>
         </div>
 

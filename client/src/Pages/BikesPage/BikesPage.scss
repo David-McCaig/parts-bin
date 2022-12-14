@@ -6,9 +6,10 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #FAFAFA;
-    @include tablet{
-  
-    // justify-content: space-between;   
+
+    @include tablet {
+
+        // justify-content: space-between;   
     }
- 
+
 }

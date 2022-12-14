@@ -1,9 +1,13 @@
 import Header from "../../Components/Header/Header";
 import ProductCardList from "../../Components/ProductCardList/ProductCardList"
 import { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./HomePage.scss"
+
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
+
 
 function HomePage() {
   const urlForProductList = "http://localhost:8000/product";
@@ -23,7 +27,7 @@ function HomePage() {
       });
   }, [id]);
 
-  if(productToDisplay.length === 0){
+  if (productToDisplay.length === 0) {
 
     <div>Loading....</div>
   }

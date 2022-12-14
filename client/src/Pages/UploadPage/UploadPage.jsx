@@ -5,7 +5,7 @@ function UploadPage() {
 
     return (
         <>
-<Upload/>
+            <Upload />
         </>
     );
 }

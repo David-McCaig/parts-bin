@@ -17,8 +17,8 @@ const ProductCardList = ({ products, setproductToDisplay }) => {
               image={product.image_path}
               // description={product.description}
               setproductToDisplay={setproductToDisplay}
-              // products={products}
-            />  
+            // products={products}
+            />
           </>
         );
       })}

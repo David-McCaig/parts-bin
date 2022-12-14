@@ -23,7 +23,6 @@ a {
 .inventory-add-form {
     // padding: 0 2rem;
     padding: 0 1rem 2rem;
-    margin-top: 2rem;
     // gap: 2rem;
 
     @include tablet {
@@ -285,3 +284,20 @@ a {
 ::placeholder {
     color: $secondary-color-3;
 }
+
+// .error {
+//     margin-top: .5rem;
+//     display: flex;
+//     color: red;
+//     opacity: 55%;
+//     &__logo {
+//     margin-top: .2rem;
+//     margin: .25rem 0.2rem 0rem 0rem;
+//     }
+
+    .error__message {
+        color: red;
+        opacity: 55%;
+        margin-top: .2rem;
+        margin: .2rem 0rem 0rem .2rem;
+    }

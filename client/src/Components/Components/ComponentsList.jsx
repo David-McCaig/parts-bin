@@ -3,8 +3,8 @@ import ComponentsListAll from "./ComponentsListAll";
 
 
 const ComponentsList = ({ products, setproductToDisplay }) => {
-  
-    return (
+
+  return (
     <>
       {products.map((product) => {
         return (
@@ -18,8 +18,8 @@ const ComponentsList = ({ products, setproductToDisplay }) => {
               image={product.image_path}
               // description={product.description}
               setproductToDisplay={setproductToDisplay}
-              // products={products}
-            />  
+            // products={products}
+            />
           </>
         );
       })}
