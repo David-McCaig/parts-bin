@@ -146,7 +146,7 @@ const Upload = () => {
               className="inventory-add-form__name"
               id="customer_name"
               name="customer_name"
-              placeholder="customer_name"
+              placeholder="Customer_name"
             ></input>
 
             <p className="error__message">{errors.customer_name?.message}</p>
@@ -172,7 +172,7 @@ const Upload = () => {
               className="inventory-add-form__name"
               id="email"
               name="email"
-              placeholder="email"
+              placeholder="Email"
             ></input>
             <p className="error__message">{errors.email?.message}</p>
           </div>

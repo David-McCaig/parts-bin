@@ -6,11 +6,9 @@ import "./ProductCardList.scss"
 
 const ProductCardListAll = ({
   id,
-  customerName,
   itemName,
   price,
   image,
-  // description,
 }) => {
 
 
