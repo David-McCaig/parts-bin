@@ -9,10 +9,8 @@ const customerController = require("../controllers/customerController");
 
 router.get("/", customerController.getAllCustomers);
 
-
 router
 .route("/:id")
 .get(customerController.getCustomerById)
-
 
 module.exports = router;

@@ -4,8 +4,6 @@ import "./ComponentsPage.scss";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
 function ComponentsPage() {
   const urlForProductList = "http://localhost:8000/product/components";
   const [productToDisplay, setproductToDisplay] = useState([]);
@@ -29,12 +27,8 @@ function ComponentsPage() {
     <div>Loading....</div>
   }
 
-
   return (
     <>
-      {/* <h1>This is the bikes page</h1> */}
-
-
       <div className="bike__list">
         <Components
           products={productToDisplay}
@@ -42,8 +36,6 @@ function ComponentsPage() {
         />
       </div>
     </>
-
-
   );
 }
 export default ComponentsPage;

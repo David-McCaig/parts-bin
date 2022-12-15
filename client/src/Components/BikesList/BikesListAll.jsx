@@ -7,9 +7,7 @@ const BikesListAll = ({
   itemName,
   price,
   image,
-  // description,
 }) => {
-
 
   return (
     <>

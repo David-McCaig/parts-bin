@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage : storage })
-// const upload = multer({ dest: 'public/images' })
 
 const getAllProduct = async (_req, res) => {
   try {
@@ -45,10 +44,6 @@ const getComponents = async (_req, res) => {
   }
 };
   
-
-
-
-
 
 const addProductItem = async (req, res) => {
  
@@ -92,12 +87,6 @@ const addProductItem = async (req, res) => {
          res.status(500).json({ error: error });
        }
     })
-  
-  
- 
- // Validate request body input fields
-
-
 };
 
 

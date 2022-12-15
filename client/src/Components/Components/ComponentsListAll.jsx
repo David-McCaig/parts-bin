@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 const ComponentsListAll = ({
   id,
-  customerName,
   itemName,
   price,
   image,
-  // description,
 }) => {
 
 

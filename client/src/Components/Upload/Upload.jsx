@@ -3,9 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { BiErrorCircle } from "react-icons/bi";
-
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Upload = () => {
   //Navigation
@@ -18,8 +15,6 @@ const Upload = () => {
   } = useForm();
 
   console.log(errors)
-
-
 
   //State Variables
   const [imageFile, setImageFile] = useState(null);
@@ -46,9 +41,7 @@ const Upload = () => {
 
   const handleFileChange = (event) => {
     console.log(event.target.files)
-    // setImageFile(URL.createObjectURL(event.target.files[0]));
-
-    setImageFile(event.target.files[0])
+     setImageFile(event.target.files[0])
   }
 
 
@@ -62,7 +55,6 @@ const Upload = () => {
 
   //Handle Save Button
   const handleUpdateSaved = (event) => {
-    // event.preventDefault();
     console.log(imageFile)
 
 
@@ -104,33 +96,18 @@ const Upload = () => {
       {/* Add Form */}
       <form onSubmit={handleSubmit((data) => {
         return handleUpdateSaved(data)
-      })} className="inventory-add-form">
+      })} className="upload-add-form">
+        {/*Add image*/}
         <div className="upload__container">
           <input type="file" name="image_path" className="upload__button" onChange={handleFileChange} />
-          <img src={imageFile} />
         </div>
 
         {/* Item Details */}
-        <div className="inventory-add-form__item-details">
-          <h2 className="inventory-add-form__main-header"></h2>
-          {/* Item Name */}
-          {/* <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
-              image path
-            </label>
-            <input
-              type="text"
-              value={values.image_path}
-              onChange={handleInputChange}
-              className="inventory-add-form__name"
-              id="image_path"
-              name="image_path"
-              placeholder="image_path"
-            ></input>
-          </div> */}
+        <div className="upload-add-form__item-details">
+          <div className="upload-add-form__main-header"></div>
 
           <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
+            <label className="upload-add-form__headings" htmlFor="item_name">
               Customer Name
             </label>
             <input
@@ -143,7 +120,7 @@ const Upload = () => {
               type="text"
               value={values.customer_name}
               onChange={handleInputChange}
-              className="inventory-add-form__name"
+              className="upload-add-form__name"
               id="customer_name"
               name="customer_name"
               placeholder="Customer_name"
@@ -153,7 +130,7 @@ const Upload = () => {
           </div>
 
           <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
+            <label className="upload-add-form__headings" htmlFor="item_name">
               Email
             </label>
             <input
@@ -169,7 +146,7 @@ const Upload = () => {
               })}
               value={values.email}
               onChange={handleInputChange}
-              className="inventory-add-form__name"
+              className="upload-add-form__name"
               id="email"
               name="email"
               placeholder="Email"
@@ -178,7 +155,7 @@ const Upload = () => {
           </div>
 
           <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
+            <label className="upload-add-form__headings" htmlFor="item_name">
               Price
             </label>
             <input
@@ -191,7 +168,7 @@ const Upload = () => {
               type="text"
               value={values.price}
               onChange={handleInputChange}
-              className="inventory-add-form__name"
+              className="upload-add-form__name"
               id="price"
               name="price"
               placeholder="Price"
@@ -200,7 +177,7 @@ const Upload = () => {
           </div>
 
           <div>
-            <label className="inventory-add-form__headings" htmlFor="item_name">
+            <label className="upload-add-form__headings" htmlFor="item_name">
               Item Name
             </label>
             <input
@@ -213,7 +190,7 @@ const Upload = () => {
               type="text"
               value={values.item_Name}
               onChange={handleInputChange}
-              className="inventory-add-form__name"
+              className="upload-add-form__name"
               id="item_name"
               name="item_name"
               placeholder="Item Name"
@@ -222,7 +199,7 @@ const Upload = () => {
           </div>
           <div>
             <label
-              className="inventory-add-form__headings"
+              className="upload-add-form__headings"
               htmlFor="description"
             >
               Description
@@ -237,7 +214,7 @@ const Upload = () => {
               type="text"
               value={values.description}
               onChange={handleInputChange}
-              className="inventory-add-form__description"
+              className="upload-add-form__description"
               id="description"
               name="description"
               placeholder="Please enter a brief item description..."
@@ -246,7 +223,7 @@ const Upload = () => {
           </div>
           {/* Item Category Dropdown */}
           <div>
-            <label className="inventory-add-form__headings" htmlFor="category">
+            <label className="upload-add-form__headings" htmlFor="category">
               Category
             </label>
             <select
@@ -257,7 +234,7 @@ const Upload = () => {
                 }
               })}
               onChange={handleInputChange}
-              className="inventory-add-form__category"
+              className="upload-add-form__category"
               name="category"
               id="category"
               placeholder="Please select"
@@ -270,12 +247,12 @@ const Upload = () => {
           </div>
         </div>
 
-        <div className="inventory-add-form__item-availability">
+        <div className="upload-add-form__item-availability">
 
-          <div className="inventory-add-form__status-container">
+          <div className="upload-add-form__status-container">
             <div>
-              <div className="inventory-add-form__everything-radio-container">
-                <div className="inventory-add-form__radio-container">
+              <div className="upload-add-form__everything-radio-container">
+                <div className="upload-add-form__radio-container">
 
                 </div>
               </div>
@@ -285,29 +262,29 @@ const Upload = () => {
             <div>
               <div>
                 <label
-                  className="inventory-add-form__headings"
+                  className="upload-add-form__headings"
                   htmlFor="warehouse"
                 >
                   {/* Warehouse */}
                 </label>
               </div>
-              <p className="inventory-add-form__message">
+              <p className="upload-add-form__message">
                 {confirmationMessage}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="inventory-add-form__button-container">
+        <div className="upload-add-form__button-container">
           {/* Cancel Button  */}
           <button
             onClick={handleCancelClick}
-            className="inventory-add-form__cancel-button"
+            className="upload-add-form__cancel-button"
           >
             Cancel
           </button>
           {/* Add Button  */}
-          <button type="submit" className="inventory-add-form__add-button">
+          <button type="submit" className="upload-add-form__add-button">
             + Add Item
           </button>
         </div>

@@ -5,9 +5,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./HomePage.scss"
 
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
-
 
 function HomePage() {
   const urlForProductList = "http://localhost:8000/product";
@@ -20,7 +17,6 @@ function HomePage() {
       .get(urlForProductList)
       .then((response) => {
         setproductToDisplay(response.data);
-        console.log(response.data)
       })
       .catch((err) => {
         console.log(err);

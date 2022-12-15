@@ -10,11 +10,7 @@ import { CgNametag } from "react-icons/cg";
 
 function ProductDetails({ product, customer }) {
     console.log(customer)
-    // const itemName = product.item_name;
-    // const description = product.description;
-    // const price = product.price;
-    // const customerName = customer.customer_name;
-    // const email = customer.email;
+
     const [name, setName] = useState("");
 
     const handleSubmit = (event) => {

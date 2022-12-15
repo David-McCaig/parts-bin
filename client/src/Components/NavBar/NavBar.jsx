@@ -16,7 +16,6 @@ function NavBar() {
               <Nav.Link href="/bikes">Bikes</Nav.Link>
               <Nav.Link href="/components">Components</Nav.Link>
               <Nav.Link href="/upload">Post Add</Nav.Link>
-              <Nav.Link href="#link">Sign Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

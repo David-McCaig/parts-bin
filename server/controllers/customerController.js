@@ -7,10 +7,12 @@ const validateCustomer = (customer) => {
   return true
 }
 
+
 const getAllCustomers = async (_req, res) => {
   const costumerData = await db("customer");
   res.status(200).json(costumerData);
 };
+
 
 const getCustomerById = async (req, res) => {
   try {
@@ -68,7 +70,6 @@ const getOrInsertCustomer = async (req, res) => {
 
 module.exports = {
   getAllCustomers,
-  // addCustomer,
   getCustomerById,
   getOrInsertCustomer
 }

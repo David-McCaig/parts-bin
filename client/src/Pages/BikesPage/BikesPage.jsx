@@ -1,10 +1,8 @@
-import BikesList from "../../Components/BikesBikes/BikesList"
+import BikesList from "../../Components/BikesList/BikesList"
 import { useState, useEffect } from "react";
 import "./BikesPage.scss";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function BikesPage() {
   const urlForProductList = `http://localhost:8000/product`;
@@ -22,7 +20,7 @@ function BikesPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id, urlForProductList]);
 
   if (productToDisplay.length === 0) {
 
@@ -32,9 +30,6 @@ function BikesPage() {
 
   return (
     <>
-      {/* <h1>This is the bikes page</h1> */}
-
-
       <div className="bike__list">
         <BikesList
           products={productToDisplay}
@@ -42,8 +37,6 @@ function BikesPage() {
         />
       </div>
     </>
-
-
   );
 }
 export default BikesPage;

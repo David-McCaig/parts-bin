@@ -1,7 +1,7 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import "./UploadSucess.scss"
 import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-
 
 function UploadSucess() {
 
@@ -11,7 +11,7 @@ function UploadSucess() {
         setTimeout(() => {
             navigate("/")
         }, 2550)
-    }, [])
+    }, [navigate])
 
     return (
         <>
