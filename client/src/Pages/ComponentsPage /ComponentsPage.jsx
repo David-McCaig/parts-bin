@@ -7,7 +7,7 @@ import axios from "axios";
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function ComponentsPage() {
-  const urlForProductList = "http://localhost:8000/product/parts";
+  const urlForProductList = "http://localhost:8000/product/components";
   const [productToDisplay, setproductToDisplay] = useState([]);
 
   const { id } = useParams();

@@ -19,7 +19,7 @@ function App() {
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/uploadsuccess" element={<UploadSuccess />} />
           <Route path="/bikes" element={<BikesPage />} />
-          <Route path="/ComponentsPage" element={<ComponentsPage />} />
+          <Route path="/components" element={<ComponentsPage />} />
           <Route path='/product/:id' element={<ProductDetailsPage />} />
         </Routes>
       </BrowserRouter>

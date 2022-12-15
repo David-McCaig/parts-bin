@@ -33,7 +33,7 @@ const getAllProduct = async (_req, res) => {
 };
 
 
-const getParts = async (_req, res) => {
+const getComponents = async (_req, res) => {
   try {
     const componentData = await db("product")
     .where({category:'Components'})
@@ -114,5 +114,5 @@ module.exports = {
   getAllProduct,
   addProductItem,
   getProductById,
-  getParts,
+  getComponents,
 };
