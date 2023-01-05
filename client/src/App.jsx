@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from "./Components/Footer/Footer"
 
 function App() {
+  
   return (
     <>
       <NavBar />

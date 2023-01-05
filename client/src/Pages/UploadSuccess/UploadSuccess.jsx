@@ -10,6 +10,7 @@ function UploadSucess() {
     useEffect(() => {
         setTimeout(() => {
             navigate("/")
+            window.scrollTo(0, 0)
         }, 2550)
     }, [navigate])
 

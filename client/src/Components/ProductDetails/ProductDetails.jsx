@@ -12,9 +12,11 @@ function ProductDetails({ product, customer }) {
     console.log(customer)
 
     const [name, setName] = useState("");
+    const [confirmationMessage, setConfirmationMessage] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setConfirmationMessage(`Message sent!`);
     }
 
     return (
@@ -59,6 +61,7 @@ function ProductDetails({ product, customer }) {
                             onChange={(e) => setName(e.target.value)}
                         />
                         <input type="submit" className='message__button' />
+                        <p className='message__sent'>{confirmationMessage}</p>
                     </form>
                 </div>
             </div>
