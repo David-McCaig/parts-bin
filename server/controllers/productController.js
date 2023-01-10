@@ -24,7 +24,8 @@ const getAllProduct = async (_req, res) => {
     const productData = await db("product")
       .where({category:'Bikes'})
       .select('product.id', 'customer_name', 'email', 'item_name', 'description', 'category', 'price', 'image_path')
-      .join('customer', { 'product.customer_id': 'customer.id' });
+      .join('customer', { 'product.customer_id': 'customer.id' })
+      .orderBy('email',);
     res.status(200).json(productData);
   } catch (error) {
     res.status(500).json({ error: error });
@@ -70,7 +71,7 @@ const addProductItem = async (req, res) => {
       try {
   
         const customer = await getOrInsertCustomer(req, res) 
-        console.log('Add product cusomter called', {customer})
+        console.log('Add product customer called', {customer})
            await db("product").insert({
              customer_id: customer[0].id,
              item_name: req.body.item_name,

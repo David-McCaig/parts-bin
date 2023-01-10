@@ -106,7 +106,7 @@
         price: '$2400',
       },
       {
-        id: '24708357-b8cf-4ca5-90a6-4fa5e40d6323',
+        id: '3b16f79c-4efd-43ee-8ec4-a65439d5fe5e',
         customer_id: '26f54a7c-4e6b-4073-b487-cbfb6c018c2f',
         item_name: 'Crust Bikes',
         description:'Crust Bikes in excellent condition \ santa cruz reserve 30 wheelset carbon sram brakes sram xo1 groupset gold chainring absolute black oval fox performance fork 160mm cash or pick up at 90720',
